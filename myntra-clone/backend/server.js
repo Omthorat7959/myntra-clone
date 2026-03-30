@@ -11,7 +11,7 @@ const Wishlistroutes = require("./routes/Wishlistroutes");
 const OrderRoutes = require("./routes/OrderRoutes");
 const NotificationRoutes = require("./routes/NotificationRoutes");
 const TransactionRoutes = require("./routes/TransactionRoutes");
-const RecommendationRoutes = require("./routes/RecommendationRoutes"); // ✅ moved to top
+const RecommendationRoutes = require("./routes/RecommendationRoutes");
 
 dotenv.config();
 
@@ -23,8 +23,8 @@ app.use(cors({
     "http://localhost:8082",
     "http://localhost:19006",
     "http://localhost:3000",
-    "https://myntra-om_thorat.expo.app", // ✅ ADDED
-    "https://*.expo.app",                // ✅ ADDED
+    "https://om-thorat-myntra--fl100qu6dy.expo.app", // ✅ correct Expo URL
+    "https://*.expo.app",                             // ✅ all expo URLs
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -43,7 +43,7 @@ app.use("/wishlist", Wishlistroutes);
 app.use("/Order", OrderRoutes);
 app.use("/notifications", NotificationRoutes);
 app.use("/transactions", TransactionRoutes);
-app.use("/recommendations", RecommendationRoutes); // ✅ moved here
+app.use("/recommendations", RecommendationRoutes);
 
 // Database connection
 mongoose
