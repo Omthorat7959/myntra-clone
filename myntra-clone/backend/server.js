@@ -11,6 +11,7 @@ const Wishlistroutes = require("./routes/Wishlistroutes");
 const OrderRoutes = require("./routes/OrderRoutes");
 const NotificationRoutes = require("./routes/NotificationRoutes");
 const TransactionRoutes = require("./routes/TransactionRoutes");
+const RecommendationRoutes = require("./routes/RecommendationRoutes"); // ✅ moved to top
 
 dotenv.config();
 
@@ -22,6 +23,8 @@ app.use(cors({
     "http://localhost:8082",
     "http://localhost:19006",
     "http://localhost:3000",
+    "https://myntra-om_thorat.expo.app", // ✅ ADDED
+    "https://*.expo.app",                // ✅ ADDED
   ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -40,6 +43,7 @@ app.use("/wishlist", Wishlistroutes);
 app.use("/Order", OrderRoutes);
 app.use("/notifications", NotificationRoutes);
 app.use("/transactions", TransactionRoutes);
+app.use("/recommendations", RecommendationRoutes); // ✅ moved here
 
 // Database connection
 mongoose
@@ -49,6 +53,3 @@ mongoose
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
-
-const RecommendationRoutes = require("./routes/RecommendationRoutes");
-app.use("/recommendations", RecommendationRoutes);
