@@ -17,19 +17,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: [
-    "http://localhost:8081",
-    "http://localhost:8082",
-    "http://localhost:19006",
-    "http://localhost:3000",
-    "https://om-thorat-myntra--fl100qu6dy.expo.app", // ✅ correct Expo URL
-    "https://*.expo.app",                             // ✅ all expo URLs
-  ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+app.use(cors()); // ✅ Allow ALL origins — fixes CORS permanently
 
 // Routes
 app.get("/", (req, res) => {
